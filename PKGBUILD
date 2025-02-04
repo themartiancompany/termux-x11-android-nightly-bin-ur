@@ -23,7 +23,7 @@ _pkgname="${_pkgbase}"
 _pkg="com.${_pkg}"
 _Pkg="Termux"
 pkgname=(
-  "${_pkgname}-android-${_nightly}-bin"
+  "${_pkgname}-android-${_variant}-bin"
 )
 pkgver=1.03.1.2025.01.29
 # _commit="e117ccae32d5a7d75479b61f034000122fe9fa24"
@@ -78,7 +78,7 @@ makedepends=(
 checkdepends=(
 )
 provides=(
-  "${_pkgname}-android-${_nightly}=${pkgver}"
+  "${_pkgname}-android=${pkgver}"
 )
 conflicts=(
   "${_pkgname}-android-${_nightly}"
