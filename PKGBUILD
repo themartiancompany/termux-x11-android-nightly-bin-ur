@@ -20,7 +20,7 @@ _component="x11"
 _variant="nightly"
 _pkgbase="${_pkg}-${_component}"
 _pkgname="${_pkgbase}"
-_app_id="com.${_pkg}"
+_app_id="com.${_pkg}.x11"
 _Pkg="Termux-X11"
 pkgname=(
   "${_pkgname}-android-${_variant}-bin"
