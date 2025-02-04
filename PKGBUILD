@@ -78,10 +78,12 @@ makedepends=(
 checkdepends=(
 )
 provides=(
+  "${_pkgname}-android-bin=${pkgver}"
   "${_pkgname}-android=${pkgver}"
 )
 conflicts=(
-  "${_pkgname}-android-${_nightly}"
+  "${_pkgname}-android-bin"
+  "${_pkgname}-android"
 )
 source=()
 sha256sums=()
