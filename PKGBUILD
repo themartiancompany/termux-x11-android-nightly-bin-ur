@@ -20,8 +20,8 @@ _component="x11"
 _variant="nightly"
 _pkgbase="${_pkg}-${_component}"
 _pkgname="${_pkgbase}"
-_pkg="com.${_pkg}"
-_Pkg="Termux"
+_app_id="com.${_pkg}"
+_Pkg="Termux-X11"
 pkgname=(
   "${_pkgname}-android-${_variant}-bin"
 )
@@ -89,7 +89,7 @@ source=()
 sha256sums=()
 _fdroid_url="https://f-droid.org/repo"
 _http="https://github.com"
-_ns="${_pk}"
+_ns="${_pkg}"
 _github_url="${_http}/${_ns}/${_pkgname}"
 # _tag="${pkgrel}"
 # _tag="${pkgver}"
@@ -125,11 +125,12 @@ elif [[ "${_git}" == false ]]; then
     _url="${_github_url}"
     if [[ "${_tag_name}" == "pkgver" ]]; then
       _dl_name="app-${_aarch}-debug.apk"
-      _src="${_tarname}.apk::${_url}/releases/download/v${pkgver}/${_dl_name}"
+      _src="${_tarname}.apk::${_url}/releases/download/${_tag}/${_dl_name}"
       if [[ "${_aarch}" == "arm64-v8a" ]]; then
         _sum="72c8d3cf7cb12d8c550a6b2750bd00bc99ad084c70f8ff0d2ffa9189e685ce4f"
       elif [[ "${_aarch}" == "armeabi-v7a" ]]; then
-        _sum="925a169cfafa2181066bb52c58da7b3514110dfd5f9b8f6d84df897842988e93"
+        _sum="7bc622d07142687bceee963752e5a0b2a862a6c6f2baf447aad1075b0ddebd70"
+        _sum="SKIP" # <- this will have to stay I guess for this package.
       elif [[ "${_aarch}" == "x86" ]]; then
         _sum="084ada98b58d28e9df38b234afb8653a53e37a237e7446e3e3077c68c5281b7c"
       elif [[ "${_aarch}" == "x86_64" ]]; then
@@ -169,7 +170,7 @@ package() {
     if [[ "${_install_type}" == "system" ]]; then
       _dest_dir="/system/app/${_Pkg}"
     elif [[ "${_install_type}" == "user" ]]; then
-      _dest_dir="/data/app/${_pkg}"
+      _dest_dir="/data/app/${_app_id}"
     fi
     _dest="base.apk"
   fi
